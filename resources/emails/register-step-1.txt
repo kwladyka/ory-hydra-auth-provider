@@ -1,0 +1,6 @@
+Hi,
+
+Click on confirmation link to active your account!
+{{confirmation-link}}
+
+{% include "signature.txt" %}

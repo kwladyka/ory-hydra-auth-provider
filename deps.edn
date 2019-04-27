@@ -1,0 +1,53 @@
+{:paths ["resources" "src"]
+ :deps {org.clojure/clojure {:mvn/version "1.10.1"}
+        ;integrant {:mvn/version "0.7.0"}
+
+        ;; logs
+        com.taoensso/timbre {:mvn/version "4.10.0"}
+        ;org.apache.logging.log4j/log4j-core {:mvn/version "2.11.2"}
+        ;org.slf4j/slf4j-simple {:mvn/version "1.7.25"}
+        ;org.slf4j/slf4j-api {:mvn/version "1.7.14"}
+        ;com.fzakaria/slf4j-timbre {:mvn/version "0.3.13"}
+        ;org.slf4j/log4j-over-slf4j {:mvn/version "1.7.14"}
+        ;ch.qos.logback/logback-classic {:mvn/version "1.2.3"}
+        ;io.sentry/sentry-clj {:mvn/version "0.7.2"}
+        ;io.sentry/sentry-logback {:mvn/version "1.7.16"}
+
+        ;; PostgreSQL
+        org.postgresql/postgresql {:mvn/version "42.2.5"}
+        org.clojure/java.jdbc {:mvn/version "0.7.9"}
+        clj-postgresql {:mvn/version "0.7.0"}               ; types conversions
+
+        ;; server
+        ring/ring-core {:mvn/version "1.7.1"}
+        ring-middleware-format {:mvn/version "0.7.3"}
+        ;ring-cors {:mvn/version "0.1.13"}
+        ;jdbc-ring-session {:mvn/version "1.2"}
+        ;ring/ring-session-timeout {:mvn/version "0.2.0"}
+        http-kit {:mvn/version "2.3.0"}
+        bidi {:mvn/version "2.1.5"}
+
+        ;; email
+        com.draines/postal {:mvn/version "2.0.3"}
+        ;selmer {:mvn/version "1.12.11"}
+
+        ;; others
+        selmer {:mvn/version "1.12.12"}
+        cheshire {:mvn/version "5.8.1"}
+        crypto-password {:mvn/version "0.2.1"}
+        danlentz/clj-uuid {:mvn/version "0.1.7"}
+        clj-time {:mvn/version "0.15.0"}
+        }
+ :aliases {:dev {:extra-paths ["dev"]
+                 :extra-deps {bananaoomarang/ring-debug-logging {:mvn/version "1.1.0"}
+                              ring/ring-devel {:mvn/version "1.7.1"}}}
+           :flyway {:extra-paths ["dev-resources"]
+                    :extra-deps {com.github.metaphor/lein-flyway {:mvn/version "6.0.0"}}}
+           :test {:extra-paths ["test"]
+                  :extra-deps {org.clojure/test.check {:mvn/version "0.9.0"}
+                               peridot {:mvn/version "0.5.1"}}}
+           :runner {:extra-deps {com.cognitect/test-runner
+                                 {:git/url "https://github.com/cognitect-labs/test-runner"
+                                  :sha "028a6d41ac9ac5d5c405dfc38e4da6b4cc1255d5"}}
+                    :main-opts ["-m" "cognitect.test-runner"
+                                "-d" "test"]}}}

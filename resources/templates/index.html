@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Log in - RedJar.net</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://clojurescript.org/images/cljs-logo-icon-32.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"> -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+</head>
+<body>
+<nav class="navbar navbar-light bg-transparent">
+    <img src="/img/logo.svg" style="height: 40px;" alt="RedJar.net">
+    <a href="https://accounts.redjar.net" role="button" class="btn btn-outline-primary">Sign up</a>
+</nav>
+
+<div class="container">
+    <div class="row align-items-center justify-content-center" style="min-height: calc(85vh - 56px)">
+        <div class="col paper" style="max-width: 450px;">
+            {% if redjar-client? %}
+            <h4>Log in to your account</h4>
+            {% else %}
+            <p>Log in with <b>RedJar</b><br/>to continue to <b>ETIN GROUP Sp. z o. o.</b></p>
+            {% endif %}
+            {% block page %}{% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

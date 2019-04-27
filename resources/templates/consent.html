@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+
+{% block page %}
+<form method="post">
+    <p>client: {{client}}</p>
+    <p>client.logo_uri: {{client.logo_uri}}</p>
+    <p>client.client_name: {{client.client_name}}</p>
+    <p>client.created_at: {{client.created_at}}</p>
+    {% for scope in requested_scope %}
+    <input type="checkbox" checked name="{{scope}}"> {{scope}}
+    {% endfor %}
+    <button type="submit">Allow access</button>
+    <button type="submit">Deny access</button>
+    <p>Authorizing will redirect to ???</p>
+</form>
+{% endblock %}
